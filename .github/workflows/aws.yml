@@ -84,7 +84,10 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         key: ${{ secrets.KEY }}
-        script: whoami
+        script: |
+          cd commerce/order
+          sudo docker compose pull
+          sudo docker compose up -d
 
 #    - name: Fill in the new image ID in the Amazon ECS task definition
 #      id: task-def
